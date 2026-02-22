@@ -82,11 +82,11 @@ export default function ConsultationForm({ className = "" }: Props) {
   if (isSuccess) {
     return (
       <div
-        className={`bg-green-50 border border-green-200 rounded-xl p-8 text-center ${className}`}
+        className={`bg-navy-950/5 border border-navy-950/20 rounded-xl p-8 text-center ${className}`}
       >
-        <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+        <div className="w-16 h-16 bg-navy-950/10 rounded-full flex items-center justify-center mx-auto mb-4">
           <svg
-            className="w-8 h-8 text-green-600"
+            className="w-8 h-8 text-navy-800"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
@@ -99,15 +99,15 @@ export default function ConsultationForm({ className = "" }: Props) {
             />
           </svg>
         </div>
-        <h3 className="text-xl font-semibold text-green-800 mb-2">
+        <h3 className="text-xl font-semibold text-navy-950 mb-2">
           Заявка отправлена!
         </h3>
-        <p className="text-green-700 mb-4">
+        <p className="text-navy-800 mb-4">
           Мы свяжемся с вами в течение 30 минут в рабочее время.
         </p>
         <button
           onClick={() => setIsSuccess(false)}
-          className="text-green-700 underline text-sm hover:text-green-900 transition-colors"
+          className="text-navy-800 underline text-sm hover:text-navy-950 transition-colors"
         >
           Отправить ещё одну заявку
         </button>

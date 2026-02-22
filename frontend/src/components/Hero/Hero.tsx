@@ -8,9 +8,19 @@ const stats = [
 
 export default function Hero() {
   return (
-    <section className="bg-gradient-to-br from-navy-950 via-navy-900 to-navy-800 text-white overflow-hidden">
-      <div className="container mx-auto px-4">
-        <div className="flex flex-col items-center text-center py-24 md:py-32 max-w-3xl mx-auto">
+    <section
+      className="relative text-white overflow-hidden"
+      style={{
+        backgroundImage: "url('/backgrpund.png')",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+      }}
+    >
+      {/* Dark overlay */}
+      <div className="absolute inset-0 bg-navy-950/70" />
+
+      <div className="relative container mx-auto px-4">
+        <div className="flex flex-col items-start text-left py-24 md:py-32 max-w-3xl">
 
           {/* Badge */}
           <span className="inline-block text-xs font-semibold tracking-widest text-gold uppercase mb-6 border border-gold/30 px-4 py-1.5 rounded-full">
@@ -29,7 +39,7 @@ export default function Hero() {
           </p>
 
           {/* Credentials */}
-          <div className="flex flex-wrap justify-center gap-3 mb-10">
+          <div className="flex flex-wrap justify-start gap-3 mb-10">
             {[
               "Адвокатская палата г. Брянска",
               "Уголовные и гражданские дела",
@@ -47,7 +57,7 @@ export default function Hero() {
           {/* Stats */}
           <div className="flex items-center divide-x divide-white/20 mb-10">
             {stats.map((s) => (
-              <div key={s.label} className="px-8 text-center">
+              <div key={s.label} className="px-8 first:pl-0 text-center">
                 <p className="text-gold text-3xl font-bold">{s.value}</p>
                 <p className="text-gray-400 text-sm mt-0.5">{s.label}</p>
               </div>

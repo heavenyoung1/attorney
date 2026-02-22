@@ -4,6 +4,7 @@ import { Link, NavLink } from "react-router-dom";
 const navLinks = [
   { to: "/", label: "Главная", end: true },
   { to: "/prices", label: "Услуги и цены", end: false },
+  { to: "/free-help", label: "Бесплатная помощь", end: false },
   { to: "/contacts", label: "Контакты", end: false },
 ];
 

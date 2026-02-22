@@ -57,7 +57,7 @@ export default function Reviews() {
   );
 
   return (
-    <section className="py-20 bg-gray-50">
+    <section className="py-20 bg-cream">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <p className="section-label mb-2">Отзывы</p>

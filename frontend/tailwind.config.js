@@ -5,16 +5,23 @@ export default {
     extend: {
       colors: {
         navy: {
-          700: "#243660",
-          800: "#1f2d52",
-          900: "#1c2848",
-          950: "#1a2744",
+          700: "#1A6358",
+          800: "#115045",
+          900: "#0F4840",
+          950: "#0D3D35",
         },
         gold: {
-          DEFAULT: "#c9a84c",
-          400: "#d4b86a",
-          600: "#b8942e",
+          DEFAULT: "#D4A843",
+          400: "#DDBA62",
+          600: "#B8922E",
         },
+        brown: {
+          DEFAULT: "#8B6F47",
+          400: "#A0845C",
+          600: "#7A5F3A",
+        },
+        cream: "#F9F6F0",
+        dark: "#2D2D2D",
       },
       fontFamily: {
         serif: ["Georgia", "Cambria", '"Times New Roman"', "serif"],

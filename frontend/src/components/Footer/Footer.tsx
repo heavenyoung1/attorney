@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 const navLinks = [
   { to: "/", label: "Главная" },
   { to: "/prices", label: "Услуги и цены" },
+  { to: "/free-help", label: "Бесплатная помощь" },
   { to: "/contacts", label: "Контакты" },
 ];
 

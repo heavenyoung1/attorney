@@ -1,3 +1,4 @@
+import { useSearchParams } from "react-router-dom";
 import ConsultationForm from "../../components/Form/ConsultationForm";
 import MapBlock from "../../components/Map/MapBlock";
 import SEOHead from "../../components/SEO/SEOHead";
@@ -41,6 +42,9 @@ const contacts: ContactItem[] = [
 ];
 
 export default function Contacts() {
+  const [searchParams] = useSearchParams();
+  const service = searchParams.get("service") ?? "";
+
   return (
     <>
       <SEOHead
@@ -120,7 +124,7 @@ export default function Contacts() {
               <h2 className="text-xl font-serif font-bold text-navy-950 mb-6">
                 Написать нам
               </h2>
-              <ConsultationForm className="bg-gray-50 border border-gray-200 p-8 rounded-2xl" />
+              <ConsultationForm className="bg-gray-50 border border-gray-200 p-8 rounded-2xl" initialMessage={service} />
             </div>
           </div>
         </div>

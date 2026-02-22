@@ -26,17 +26,16 @@ function validate(data: ConsultationFormData): FormErrors {
 
 interface Props {
   className?: string;
+  initialMessage?: string;
 }
 
-const initialFormData: ConsultationFormData = {
-  name: "",
-  phone: "",
-  email: "",
-  message: "",
-};
-
-export default function ConsultationForm({ className = "" }: Props) {
-  const [formData, setFormData] = useState<ConsultationFormData>(initialFormData);
+export default function ConsultationForm({ className = "", initialMessage = "" }: Props) {
+  const [formData, setFormData] = useState<ConsultationFormData>({
+    name: "",
+    phone: "",
+    email: "",
+    message: initialMessage,
+  });
   const [errors, setErrors] = useState<FormErrors>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
@@ -69,7 +68,7 @@ export default function ConsultationForm({ className = "" }: Props) {
         message: formData.message.trim() || null,
       });
       setIsSuccess(true);
-      setFormData(initialFormData);
+      setFormData({ name: "", phone: "", email: "", message: "" });
     } catch {
       setSubmitError(
         "Не удалось отправить заявку. Пожалуйста, позвоните нам или попробуйте позже."

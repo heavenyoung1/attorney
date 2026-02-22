@@ -148,7 +148,7 @@ export default function Prices() {
                 ))}
               </ul>
               <Link
-                to="/contacts"
+                to={`/contacts?service=${encodeURIComponent(service.title)}`}
                 className="block w-full text-center bg-gold text-navy-950 py-2.5 rounded-lg font-semibold text-sm hover:bg-gold-400 transition-colors mt-auto"
               >
                 Записаться

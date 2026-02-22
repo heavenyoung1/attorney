@@ -127,6 +127,18 @@ export default function Reviews() {
             →
           </button>
         </div>
+
+        {/* Leave a review CTA */}
+        <div className="flex justify-center mt-8">
+          <a
+            href="https://yandex.ru/profile/56482587648?lang=ru"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block px-8 py-3 bg-navy-950 text-white text-sm font-semibold tracking-widest uppercase rounded-full hover:bg-gold hover:text-navy-950 transition-colors duration-200"
+          >
+            Оставить отзыв
+          </a>
+        </div>
       </div>
     </section>
   );

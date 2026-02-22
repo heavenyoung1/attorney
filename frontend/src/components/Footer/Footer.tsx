@@ -97,14 +97,15 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-white/10 pt-6 text-center text-xs text-gray-500">
-          <p>
-            © {year} Мефёд Александр Иванович. Все права защищены. · Сайт разработан{" "}
+        <div className="border-t border-white/10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-sm text-gray-500">
+          <p>© {year} Мефёд Александр Иванович. Все права защищены.</p>
+          <p className="text-xs text-white/30 italic tracking-wide">
+            Сайт разработан{" "}
             <a
               href="https://t.me/heavenyoung"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-gold transition-colors"
+              className="hover:text-gold transition-colors not-italic font-medium text-white/40"
             >
               @heavenyoung
             </a>

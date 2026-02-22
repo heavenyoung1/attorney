@@ -23,14 +23,19 @@ export default function Hero() {
 
           {/* Heading */}
           <h1 className="text-5xl md:text-6xl font-serif font-bold mb-5 leading-tight">
-            <a href="tel:+7910353731" className="hover:text-gold transition-colors">
+            Адвокат в Брянске
+          </h1>
+
+          {/* Attorney name as prominent subtitle-link */}
+          <p className="text-2xl md:text-3xl font-serif font-semibold text-gold mb-4">
+            <a href="tel:+79103353731" className="hover:opacity-80 transition-opacity">
               Мефёд Александр Иванович
             </a>
-          </h1>
+          </p>
 
           {/* Subtitle */}
           <p className="text-gray-300 text-lg mb-8 leading-relaxed max-w-2xl">
-            Надежная защита и качественные юридические услуги с 2001 года.
+            Уголовные, гражданские, семейные дела. Защита в суде с 2001 года.
           </p>
 
           {/* Credentials */}

@@ -3,14 +3,20 @@ import { Helmet } from "react-helmet-async";
 const SITE_URL = import.meta.env.VITE_SITE_URL || "https://xn--32-6kcajl7b5a2b.xn--p1ai";
 const SITE_NAME = "Адвокат Мефёд А.И.";
 
+type SchemaObject = Record<string, unknown>;
+
 interface SEOHeadProps {
   title: string;
   description: string;
   canonical?: string;
+  schema?: SchemaObject | SchemaObject[];
 }
 
-export default function SEOHead({ title, description, canonical }: SEOHeadProps) {
+export default function SEOHead({ title, description, canonical, schema }: SEOHeadProps) {
   const fullCanonical = `${SITE_URL}${canonical ?? ""}`;
+  const schemas = schema
+    ? Array.isArray(schema) ? schema : [schema]
+    : [];
 
   return (
     <Helmet>
@@ -28,6 +34,12 @@ export default function SEOHead({ title, description, canonical }: SEOHeadProps)
       <meta name="twitter:card" content="summary" />
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />
+
+      {schemas.map((s, i) => (
+        <script key={i} type="application/ld+json">
+          {JSON.stringify(s)}
+        </script>
+      ))}
     </Helmet>
   );
 }

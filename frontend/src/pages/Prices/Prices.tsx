@@ -102,15 +102,35 @@ export default function Prices() {
   return (
     <div className="py-20">
       <SEOHead
-        title="Услуги и цены адвоката в Брянске | Мефёд А.И."
-        description="Стоимость юридических услуг адвоката Мефёда А.И. в Брянске. Уголовные, гражданские, семейные, трудовые, административные дела. Первичная консультация — 1 500 ₽."
+        title="Услуги и цены адвоката в Брянске | Мефёд Александр Иванович"
+        description="Стоимость услуг адвоката в Брянске — Мефёд А.И. Уголовные дела от 50 000 ₽, гражданские от 30 000 ₽, семейные от 15 000 ₽. Консультация — 1 500 ₽."
         canonical="/prices"
+        schema={[
+          {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Главная",
+                "item": "https://xn--32-6kcajl7b5a2b.xn--p1ai/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Услуги и цены",
+                "item": "https://xn--32-6kcajl7b5a2b.xn--p1ai/prices"
+              }
+            ]
+          }
+        ]}
       />
       <div className="container mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-14">
           <p className="section-label mb-2">Стоимость</p>
-          <h1 className="section-title mb-4">Услуги и цены</h1>
+          <h1 className="section-title mb-4">Услуги и цены адвоката в Брянске</h1>
           <p className="text-gray-600 max-w-2xl mx-auto leading-relaxed">
             Стоимость зависит от сложности дела и объёма работы. Первичная
             консультация — <strong>1 500 ₽</strong>. Итоговая цена
@@ -127,9 +147,9 @@ export default function Prices() {
             >
               <div className="flex items-center gap-3 mb-3">
                 <span className="text-3xl">{service.icon}</span>
-                <h3 className="text-lg font-serif font-bold text-navy-950">
+                <h2 className="text-lg font-serif font-bold text-navy-950">
                   {service.title}
-                </h3>
+                </h2>
               </div>
               <p className="text-gray-500 text-sm leading-relaxed mb-5">
                 {service.description}
@@ -159,9 +179,9 @@ export default function Prices() {
 
         {/* CTA banner */}
         <div className="bg-navy-950 text-white rounded-2xl p-8 md:p-12 text-center">
-          <h3 className="text-2xl md:text-3xl font-serif font-bold mb-3">
+          <h2 className="text-2xl md:text-3xl font-serif font-bold mb-3">
             Не нашли нужную услугу?
-          </h3>
+          </h2>
           <p className="text-gray-300 mb-8 max-w-lg mx-auto">
             Свяжитесь с нами для индивидуального расчёта или задайте вопрос
             бесплатно

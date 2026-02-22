@@ -48,15 +48,35 @@ export default function Contacts() {
   return (
     <>
       <SEOHead
-        title="Контакты адвоката Мефёда А.И. в Брянске"
-        description="Адрес: г. Брянск, ул. Крапивницкого, 29. Телефон: +7 (910) 335-37-31. Запись на консультацию онлайн. Работаем Пн–Пт: 9:00–18:00, Сб: 10:00–14:00."
+        title="Контакты адвоката в Брянске | Мефёд А.И. +7 (910) 335-37-31"
+        description="Адвокат в Брянске — адрес: ул. Крапивницкого, 29, офис 2. Звоните: +7 (910) 335-37-31. Запись на консультацию онлайн. Пн–Пт: 9:00–18:00, Сб: 10:00–14:00."
         canonical="/contacts"
+        schema={[
+          {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Главная",
+                "item": "https://xn--32-6kcajl7b5a2b.xn--p1ai/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Контакты",
+                "item": "https://xn--32-6kcajl7b5a2b.xn--p1ai/contacts"
+              }
+            ]
+          }
+        ]}
       />
       <div className="py-20">
         <div className="container mx-auto px-4">
           <div className="text-center mb-14">
             <p className="section-label mb-2">Контакты</p>
-            <h1 className="section-title">Свяжитесь с нами</h1>
+            <h1 className="section-title">Контакты адвоката в Брянске</h1>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">

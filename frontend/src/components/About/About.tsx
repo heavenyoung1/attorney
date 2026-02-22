@@ -23,7 +23,7 @@ export default function About() {
           {/* Text content */}
           <div className="flex-1">
             <p className="section-label mb-2">Об адвокате</p>
-            <h2 className="section-title mb-8">Мефёд Александр Иванович</h2>
+            <h2 className="section-title mb-8">Мефёд Александр Иванович — адвокат в Брянске</h2>
 
             <div className="grid grid-cols-3 gap-4 mb-8">
               {stats.map(({ value, label }) => (

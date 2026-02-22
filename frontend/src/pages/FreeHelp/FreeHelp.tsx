@@ -5,15 +5,35 @@ export default function FreeHelp() {
     <div className="py-16 md:py-20">
       <SEOHead
         title="Бесплатная юридическая помощь в Брянске | Адвокат Мефёд А.И."
-        description="Условия получения бесплатной юридической помощи по ФЗ-324. Адрес: г. Брянск, ул. Крапивницкого, 29, каб. 9. Адвокат Мефёд Александр Иванович."
+        description="Бесплатная юридическая помощь в Брянске по ФЗ-324. Адрес: г. Брянск, ул. Крапивницкого, 29, каб. 9. Адвокат Мефёд А.И. — кто имеет право и как получить."
         canonical="/free-help"
+        schema={[
+          {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Главная",
+                "item": "https://xn--32-6kcajl7b5a2b.xn--p1ai/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Бесплатная юридическая помощь",
+                "item": "https://xn--32-6kcajl7b5a2b.xn--p1ai/free-help"
+              }
+            ]
+          }
+        ]}
       />
       <div className="container mx-auto px-4 max-w-3xl">
 
         {/* Page header */}
         <div className="mb-10">
           <p className="section-label mb-2">Адвокат Мефёд А.И.</p>
-          <h1 className="section-title mb-5">Бесплатная юридическая помощь</h1>
+          <h1 className="section-title mb-5">Бесплатная юридическая помощь в Брянске</h1>
         </div>
 
         {/* Intro block */}

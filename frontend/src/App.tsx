@@ -5,6 +5,9 @@ import Home from "./pages/Home/Home";
 import Prices from "./pages/Prices/Prices";
 import Contacts from "./pages/Contacts/Contacts";
 import FreeHelp from "./pages/FreeHelp/FreeHelp";
+import CriminalLaw from "./pages/CriminalLaw/CriminalLaw";
+import CivilLaw from "./pages/CivilLaw/CivilLaw";
+import FamilyLaw from "./pages/FamilyLaw/FamilyLaw";
 
 function App() {
   return (
@@ -17,6 +20,9 @@ function App() {
             <Route path="/prices" element={<Prices />} />
             <Route path="/contacts" element={<Contacts />} />
             <Route path="/free-help" element={<FreeHelp />} />
+            <Route path="/ugolovnyy-advokat-bryansk" element={<CriminalLaw />} />
+            <Route path="/grazhdanskiy-advokat-bryansk" element={<CivilLaw />} />
+            <Route path="/semeynyy-advokat-bryansk" element={<FamilyLaw />} />
           </Routes>
         </main>
         <Footer />

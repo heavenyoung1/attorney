@@ -4,9 +4,16 @@ import Reviews from "../../components/Reviews/Reviews";
 import Partners from "../../components/Partners/Partners";
 import MapBlock from "../../components/Map/MapBlock";
 import ConsultationForm from "../../components/Form/ConsultationForm";
+import SEOHead from "../../components/SEO/SEOHead";
+
 export default function Home() {
   return (
     <>
+      <SEOHead
+        title="Адвокат Мефёд А.И. — юридическая помощь в Брянске"
+        description="Профессиональный адвокат в Брянске с опытом 25+ лет. Уголовные, гражданские, семейные дела. Звоните: +7 (910) 335-37-31. Консультация от 1 500 ₽."
+        canonical="/"
+      />
       {/* Hero / About */}
       <Hero />
       <About />

@@ -1,6 +1,13 @@
+import SEOHead from "../../components/SEO/SEOHead";
+
 export default function FreeHelp() {
   return (
     <div className="py-16 md:py-20">
+      <SEOHead
+        title="Бесплатная юридическая помощь в Брянске | Адвокат Мефёд А.И."
+        description="Условия получения бесплатной юридической помощи по ФЗ-324. Адрес: г. Брянск, ул. Крапивницкого, 29, каб. 9. Адвокат Мефёд Александр Иванович."
+        canonical="/free-help"
+      />
       <div className="container mx-auto px-4 max-w-3xl">
 
         {/* Page header */}

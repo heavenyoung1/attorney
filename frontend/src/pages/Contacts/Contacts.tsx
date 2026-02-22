@@ -1,5 +1,6 @@
 import ConsultationForm from "../../components/Form/ConsultationForm";
 import MapBlock from "../../components/Map/MapBlock";
+import SEOHead from "../../components/SEO/SEOHead";
 
 interface ContactItem {
   icon: string;
@@ -42,6 +43,11 @@ const contacts: ContactItem[] = [
 export default function Contacts() {
   return (
     <>
+      <SEOHead
+        title="Контакты адвоката Мефёда А.И. в Брянске"
+        description="Адрес: г. Брянск, ул. Крапивницкого, 29. Телефон: +7 (910) 335-37-31. Запись на консультацию онлайн. Работаем Пн–Пт: 9:00–18:00, Сб: 10:00–14:00."
+        canonical="/contacts"
+      />
       <div className="py-20">
         <div className="container mx-auto px-4">
           <div className="text-center mb-14">

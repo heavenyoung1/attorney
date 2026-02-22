@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import SEOHead from "../../components/SEO/SEOHead";
 
 interface ServiceItem {
   name: string;
@@ -100,6 +101,11 @@ const services: Service[] = [
 export default function Prices() {
   return (
     <div className="py-20">
+      <SEOHead
+        title="Услуги и цены адвоката в Брянске | Мефёд А.И."
+        description="Стоимость юридических услуг адвоката Мефёда А.И. в Брянске. Уголовные, гражданские, семейные, трудовые, административные дела. Первичная консультация — 1 500 ₽."
+        canonical="/prices"
+      />
       <div className="container mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-14">

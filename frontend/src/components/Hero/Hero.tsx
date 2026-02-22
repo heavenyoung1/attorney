@@ -30,8 +30,7 @@ export default function Hero() {
 
           {/* Subtitle */}
           <p className="text-gray-300 text-lg mb-8 leading-relaxed max-w-2xl">
-            Защищаю права граждан и организаций в уголовных, гражданских и
-            административных делах.
+            Надежная защита и качественные юридические услуги с 2001 года.
           </p>
 
           {/* Credentials */}

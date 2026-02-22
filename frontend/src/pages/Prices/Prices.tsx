@@ -173,12 +173,14 @@ export default function Prices() {
             >
               +7 (910) 335-37-31
             </a>
-            <Link
-              to="/contacts"
+            <a
+              href="https://t.me/advokatmefed"
+              target="_blank"
+              rel="noopener noreferrer"
               className="border border-gold/60 text-gold px-8 py-3.5 rounded-lg font-semibold hover:bg-gold hover:text-navy-950 transition-colors"
             >
               Написать нам
-            </Link>
+            </a>
           </div>
         </div>
       </div>

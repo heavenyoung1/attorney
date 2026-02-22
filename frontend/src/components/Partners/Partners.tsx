@@ -1,9 +1,22 @@
 const partners = [
-  { id: 1, abbr: "ЮК", name: "Юридическая Коллегия №1" },
-  { id: 2, abbr: "АП", name: "Адвокатская Палата г. Москвы" },
-  { id: 3, abbr: "ПЦ", name: "Правовой Центр «Защита»" },
-  { id: 4, abbr: "АС", name: "Арбитражный Союз" },
-  { id: 5, abbr: "НК", name: "Нотариальная Контора" },
+  {
+    id: 1,
+    abbr: "КМ",
+    name: "КровМастер",
+    desc: "С 2005 года консультирует, продаёт, поставляет и монтирует кровельные и фасадные материалы в Брянске и близлежащих регионах.",
+  },
+  {
+    id: 2,
+    abbr: "СЭ",
+    name: "Служба эксплуатации САКС",
+    desc: "Обслуживает многоквартирные дома в городе Брянске.",
+  },
+  {
+    id: 3,
+    abbr: "CO",
+    name: "CaseOne",
+    desc: "Разработка CRM систем для юристов и адвокатов.",
+  },
 ];
 
 export default function Partners() {
@@ -17,24 +30,19 @@ export default function Partners() {
           </h2>
         </div>
 
-        <div className="flex flex-wrap justify-center gap-4 md:gap-6">
+        <div className="flex flex-wrap justify-center gap-6">
           {partners.map((partner) => (
             <div
               key={partner.id}
-              className="flex flex-col items-center gap-2 px-6 py-5 border border-gray-200 rounded-xl hover:border-gold hover:shadow-md transition-all cursor-default w-40"
+              className="flex flex-col items-center gap-3 px-8 py-6 border border-gray-200 rounded-xl hover:border-gold hover:shadow-md transition-all cursor-default max-w-xs text-center"
             >
-              {/*
-               * Замените <div> на <img> с реальным логотипом:
-               * <img src={`/partners/${partner.id}.svg`} alt={partner.name} className="h-12 object-contain" />
-               */}
-              <div className="w-14 h-14 bg-gray-100 rounded-full flex items-center justify-center">
+              <div className="w-14 h-14 bg-gray-100 rounded-full flex items-center justify-center flex-shrink-0">
                 <span className="text-navy-950 font-serif font-bold text-lg">
                   {partner.abbr}
                 </span>
               </div>
-              <p className="text-xs text-gray-600 text-center leading-tight">
-                {partner.name}
-              </p>
+              <p className="text-sm font-semibold text-navy-950">{partner.name}</p>
+              <p className="text-xs text-gray-500 leading-relaxed">{partner.desc}</p>
             </div>
           ))}
         </div>

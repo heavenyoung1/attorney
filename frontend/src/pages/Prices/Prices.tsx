@@ -21,7 +21,7 @@ const services: Service[] = [
     description:
       "Защита на следствии и в суде любой инстанции. Ведение дел любой сложности.",
     items: [
-      { name: "Первичная консультация", price: "Бесплатно" },
+      { name: "Первичная консультация", price: "1 500 ₽" },
       { name: "Защита на стадии следствия", price: "от 50 000 ₽" },
       { name: "Защита в суде первой инстанции", price: "от 80 000 ₽" },
       { name: "Апелляция / кассация", price: "от 30 000 ₽" },
@@ -107,7 +107,7 @@ export default function Prices() {
           <h1 className="section-title mb-4">Услуги и цены</h1>
           <p className="text-gray-600 max-w-2xl mx-auto leading-relaxed">
             Стоимость зависит от сложности дела и объёма работы. Первичная
-            консультация — <strong>бесплатно</strong>. Итоговая цена
+            консультация — <strong>1 500 ₽</strong>. Итоговая цена
             согласовывается индивидуально.
           </p>
         </div>
@@ -162,10 +162,10 @@ export default function Prices() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
-              href="tel:+79001234567"
+              href="tel:+79103353731"
               className="bg-gold text-navy-950 px-8 py-3.5 rounded-lg font-semibold hover:bg-gold-400 transition-colors"
             >
-              +7 (900) 123-45-67
+              +7 (910) 335-37-31
             </a>
             <Link
               to="/contacts"

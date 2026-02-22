@@ -12,25 +12,25 @@ const contacts: ContactItem[] = [
   {
     icon: "📞",
     label: "Телефон",
-    value: "+7 (900) 123-45-67",
-    href: "tel:+79001234567",
+    value: "+7 (910) 335-37-31",
+    href: "tel:+79103353731",
   },
   {
     icon: "📧",
     label: "Email",
-    value: "ivanov@attorney.ru",
-    href: "mailto:ivanov@attorney.ru",
+    value: "advmefed32@yandex.ru",
+    href: "mailto:advmefed32@yandex.ru",
   },
   {
     icon: "✈",
     label: "Telegram",
-    value: "@ivanov_advocate",
-    href: "https://t.me/ivanov_advocate",
+    value: "@advokatmefed",
+    href: "https://t.me/advokatmefed",
   },
   {
     icon: "📍",
     label: "Адрес",
-    value: "г. Москва, ул. Тверская, д. 1, офис 101",
+    value: "г. Брянск, ул. Крапивницкого 29, офис. 2",
   },
   {
     icon: "⏰",
@@ -94,14 +94,14 @@ export default function Contacts() {
               {/* Info box */}
               <div className="bg-navy-950 text-white rounded-2xl p-6">
                 <h3 className="font-serif font-bold text-lg mb-2">
-                  Бесплатная консультация
+                  Консультация
                 </h3>
                 <p className="text-gray-300 text-sm leading-relaxed">
                   Позвоните или оставьте заявку — ответим в течение 30 минут
                   в рабочее время. Без предоплаты.
                 </p>
                 <a
-                  href="tel:+79001234567"
+                  href="tel:+79103353731"
                   className="inline-block mt-4 bg-gold text-navy-950 px-6 py-2.5 rounded-lg font-semibold text-sm hover:bg-gold-400 transition-colors"
                 >
                   Позвонить сейчас

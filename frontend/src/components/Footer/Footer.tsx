@@ -65,7 +65,7 @@ export default function Footer() {
                   href="tel:+7103353731"
                   className="hover:text-gold transition-colors flex items-center gap-2"
                 >
-                  <span>📞</span> +7 (900) 123-45-67
+                  <span>📞</span> +7 (910) 335-37-31
                 </a>
               </li>
               <li>
@@ -97,13 +97,17 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-white/10 pt-6 text-center text-xs text-gray-500 space-y-1">
+        <div className="border-t border-white/10 pt-6 text-center text-xs text-gray-500">
           <p>
-            © {year} Мефёд Александр Иванович. Все права защищены.
-          </p>
-          <p>
-            Информация на сайте носит ознакомительный характер и не является
-            публичной офертой.
+            © {year} Мефёд Александр Иванович. Все права защищены. · Сайт разработан{" "}
+            <a
+              href="https://t.me/heavenyoung"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-gold transition-colors"
+            >
+              @heavenyoung
+            </a>
           </p>
         </div>
       </div>

@@ -162,7 +162,7 @@ export default function ConsultationForm({ className = "" }: Props) {
           name="phone"
           value={formData.phone}
           onChange={handleChange}
-          placeholder="+7 (900) 123-45-67"
+          placeholder="+7 (910) 335-37-31"
           autoComplete="tel"
           className={`w-full px-4 py-3 border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-gold focus:border-transparent transition ${
             errors.phone

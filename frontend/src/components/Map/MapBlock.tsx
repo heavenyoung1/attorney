@@ -5,7 +5,7 @@ interface Props {
 
 export default function MapBlock({
   title = "Как нас найти",
-  subtitle = "г. Москва, ул. Тверская, д. 1, офис 101",
+  subtitle = "г. Брянск, ул. Крапивницкого 29, офис. 2",
 }: Props) {
   return (
     <section className="py-16 bg-gray-50">
@@ -19,16 +19,8 @@ export default function MapBlock({
         </div>
 
         <div className="rounded-2xl overflow-hidden shadow-lg border border-gray-200 h-80 md:h-[420px]">
-          {/*
-           * Замените src на реальную ссылку Яндекс.Карт или Google Maps.
-           *
-           * Яндекс.Карты: https://yandex.ru/map-widget/v1/?ll=37.621&z=15&pt=37.621,55.754,pm2rdm
-           * Google Maps:  https://www.google.com/maps/embed?pb=!1m18!...
-           *
-           * Пример для центра Москвы (замените координаты на ваш реальный адрес):
-           */}
           <iframe
-            src="https://yandex.ru/map-widget/v1/?ll=37.621202%2C55.753544&z=15&pt=37.621202%2C55.753544%2Cpm2rdm&l=map"
+            src="https://yandex.ru/map-widget/v1/?ll=34.355%2C53.2308&z=17&pt=34.355%2C53.2308%2Cpm2rdm&l=map&text=%D0%91%D1%80%D1%8F%D0%BD%D1%81%D0%BA%2C+%D1%83%D0%BB.+%D0%9A%D1%80%D0%B0%D0%BF%D0%B8%D0%B2%D0%BD%D0%B8%D1%86%D0%BA%D0%BE%D0%B3%D0%BE+29"
             width="100%"
             height="100%"
             style={{ border: 0 }}

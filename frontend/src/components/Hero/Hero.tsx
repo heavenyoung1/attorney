@@ -1,11 +1,5 @@
 import { Link } from "react-router-dom";
 
-const stats = [
-  { value: "500+", label: "выигранных дел" },
-  { value: "24", label: "года опыта" },
-  { value: "98%", label: "довольных клиентов" },
-];
-
 export default function Hero() {
   return (
     <section
@@ -29,19 +23,21 @@ export default function Hero() {
 
           {/* Heading */}
           <h1 className="text-5xl md:text-6xl font-serif font-bold mb-5 leading-tight">
-            Мефёд Александр Иванович
+            <a href="tel:+7910353731" className="hover:text-gold transition-colors">
+              Мефёд Александр Иванович
+            </a>
           </h1>
 
           {/* Subtitle */}
           <p className="text-gray-300 text-lg mb-8 leading-relaxed max-w-2xl">
             Защищаю права граждан и организаций в уголовных, гражданских и
-            административных делах. Первичная консультация — бесплатно.
+            административных делах.
           </p>
 
           {/* Credentials */}
-          <div className="flex flex-wrap justify-start gap-3 mb-10">
+          <div className="flex flex-col gap-2 mb-10">
             {[
-              "Адвокатская палата г. Брянска",
+              "Член Адвокатской Палаты Брянской Области",
               "Уголовные и гражданские дела",
               "№ 32/142 · с 2001 года",
             ].map((item) => (
@@ -51,16 +47,6 @@ export default function Hero() {
               >
                 <span className="text-gold text-xs">✓</span> {item}
               </span>
-            ))}
-          </div>
-
-          {/* Stats */}
-          <div className="flex items-center divide-x divide-white/20 mb-10">
-            {stats.map((s) => (
-              <div key={s.label} className="px-8 first:pl-0 text-center">
-                <p className="text-gold text-3xl font-bold">{s.value}</p>
-                <p className="text-gray-400 text-sm mt-0.5">{s.label}</p>
-              </div>
             ))}
           </div>
 

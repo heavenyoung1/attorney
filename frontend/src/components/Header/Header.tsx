@@ -21,9 +21,6 @@ export default function Header() {
             className="flex items-center gap-3 flex-shrink-0"
             onClick={() => setIsOpen(false)}
           >
-            <div className="w-10 h-10 bg-gold rounded-full flex items-center justify-center font-serif text-navy-950 font-bold text-xl select-none">
-              А
-            </div>
             <div>
               <p className="font-serif font-bold text-base leading-tight">
                 Мефёд Александр Иванович
@@ -51,10 +48,10 @@ export default function Header() {
               </NavLink>
             ))}
             <a
-              href="tel:+79001234567"
+              href="tel:+79103353731"
               className="bg-gold text-navy-950 px-5 py-2 rounded-lg font-semibold text-sm hover:bg-gold-400 transition-colors whitespace-nowrap"
             >
-              +7 (900) 123-45-67
+              +7 (910) 335-37-31
             </a>
           </nav>
 
@@ -116,11 +113,11 @@ export default function Header() {
               </NavLink>
             ))}
             <a
-              href="tel:+79001234567"
+              href="tel:+79103353731"
               className="bg-gold text-navy-950 px-4 py-3 rounded-lg font-semibold text-sm text-center hover:bg-gold-400 transition-colors"
               onClick={() => setIsOpen(false)}
             >
-              +7 (900) 123-45-67
+              +7 (910) 335-37-31
             </a>
           </nav>
         )}

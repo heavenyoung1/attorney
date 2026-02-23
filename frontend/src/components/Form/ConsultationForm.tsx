@@ -134,7 +134,7 @@ export default function ConsultationForm({ className = "", initialMessage = "" }
           name="name"
           value={formData.name}
           onChange={handleChange}
-          placeholder="Иван Иванов"
+          placeholder="Александр Пушкин"
           autoComplete="name"
           className={`w-full px-4 py-3 border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-gold focus:border-transparent transition ${
             errors.name
@@ -161,7 +161,7 @@ export default function ConsultationForm({ className = "", initialMessage = "" }
           name="phone"
           value={formData.phone}
           onChange={handleChange}
-          placeholder="+7 (910) 335-37-31"
+          placeholder="+7 (900) 555-35-35"
           autoComplete="tel"
           className={`w-full px-4 py-3 border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-gold focus:border-transparent transition ${
             errors.phone

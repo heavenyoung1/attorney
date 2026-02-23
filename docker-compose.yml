@@ -1,0 +1,46 @@
+services:
+
+  backend:
+    build: ./backend
+    restart: unless-stopped
+    # Reads BOT_TOKEN, ADMIN_CHAT_IDS, SITE_URL from backend/.env
+    env_file: ./backend/.env
+    # DATABASE_URL overrides whatever is in .env so the DB lands in the volume
+    environment:
+      DATABASE_URL: sqlite+aiosqlite:////app/data/attorney.db
+    volumes:
+      - db_data:/app/data
+    expose:
+      - "8000"
+
+  frontend:
+    build:
+      context: ./frontend
+      args:
+        # Change VITE_SITE_URL if your domain is different
+        VITE_SITE_URL: "https://xn--32-6kcajl7b5a2b.xn--p1ai"
+        VITE_API_URL: ""
+    restart: unless-stopped
+    expose:
+      - "80"
+    depends_on:
+      - backend
+
+  caddy:
+    image: caddy:alpine
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+      - "443:443/udp"   # HTTP/3
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+      - caddy_config:/config
+    depends_on:
+      - frontend
+
+volumes:
+  db_data:
+  caddy_data:
+  caddy_config:

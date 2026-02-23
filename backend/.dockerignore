@@ -1,0 +1,12 @@
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+.env
+*.db
+*.sqlite3
+.python-version
+uv.lock
+pyproject.toml
+README.md
+attorney.db

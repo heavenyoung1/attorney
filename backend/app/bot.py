@@ -36,26 +36,32 @@ async def notify_admin(
         f"💬 *Сообщение:* {_escape(message or 'не указано')}"
     )
 
-    keyboard = InlineKeyboardMarkup(
-        inline_keyboard=[
-            [
-                InlineKeyboardButton(
-                    text="🌐 Перейти на сайт",
-                    url=settings.SITE_URL,
-                )
+    is_real_url = settings.SITE_URL.startswith("https://")
+    keyboard = (
+        InlineKeyboardMarkup(
+            inline_keyboard=[
+                [
+                    InlineKeyboardButton(
+                        text="🌐 Перейти на сайт",
+                        url=settings.SITE_URL,
+                    )
+                ]
             ]
-        ]
+        )
+        if is_real_url
+        else None
     )
 
-    try:
-        await bot.send_message(
-            chat_id=settings.ADMIN_CHAT_ID,
-            text=text,
-            parse_mode="MarkdownV2",
-            reply_markup=keyboard,
-        )
-    except Exception as exc:
-        logger.error("Failed to send Telegram notification: %s", exc)
+    for chat_id in settings.ADMIN_CHAT_IDS:
+        try:
+            await bot.send_message(
+                chat_id=chat_id,
+                text=text,
+                parse_mode="MarkdownV2",
+                reply_markup=keyboard,
+            )
+        except Exception as exc:
+            logger.error("Failed to send Telegram notification to %s: %s", chat_id, exc)
 
 
 def _escape(text: str) -> str:

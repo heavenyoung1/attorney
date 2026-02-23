@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 export default function Hero() {
   return (
     <section
-      className="relative text-white overflow-hidden"
+      className="relative text-white overflow-hidden min-h-screen flex flex-col justify-center"
       style={{
         backgroundImage: "url('/backgrpund.png')",
         backgroundSize: "cover",
@@ -14,7 +14,7 @@ export default function Hero() {
       <div className="absolute inset-0 bg-navy-950/70" />
 
       <div className="relative container mx-auto px-4">
-        <div className="flex flex-col items-start text-left py-24 md:py-32 max-w-3xl">
+        <div className="flex flex-col items-start text-left py-16 max-w-3xl">
 
           {/* Badge */}
           <span className="inline-block text-xs font-semibold tracking-widest text-gold uppercase mb-6 border border-gold/30 px-4 py-1.5 rounded-full">

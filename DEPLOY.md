@@ -1,159 +1,236 @@
-# Инструкция по развёртыванию на сервере
+# Инструкция по развёртыванию на реальном сервере
 
-## Требования к серверу
+Ниже — пошаговая инструкция для корректного запуска приложения на боевом сервере с вашим доменом, HTTPS и Docker Compose.
 
-- Linux (Ubuntu 22.04 / Debian 12 или новее)
-- 1 GB RAM минимум
-- Доменное имя, направленное на IP сервера (A-запись)
-- Открытые порты: **80** и **443**
+## 1. Подготовка сервера
 
----
-
-## 1. Установка Docker
+Подключитесь к серверу по SSH и выполните:
 
 ```bash
 sudo apt update
 sudo apt install -y docker.io docker-compose-plugin
 sudo systemctl enable --now docker
 
-# Проверка
 docker --version
 docker compose version
 ```
 
-> Чтобы запускать Docker без `sudo`:
-> ```bash
-> sudo usermod -aG docker $USER
-> newgrp docker
-> ```
+Если хотите запускать Docker без sudo:
 
----
-
-## 2. Загрузка проекта на сервер
-
-**Вариант А — через Git:**
 ```bash
-git clone <URL репозитория> attorney
-cd attorney
-```
-
-**Вариант Б — через scp с локальной машины:**
-```bash
-# Выполнить на локальной машине
-scp -r /путь/к/attorney user@IP_СЕРВЕРА:~/attorney
+sudo usermod -aG docker $USER
+newgrp docker
 ```
 
 ---
 
-## 3. Настройка переменных окружения
+## 2. Клонируйте проект на сервер
 
-Создать файл `backend/.env` на основе примера:
+```bash
+git clone <URL_репозитория> /opt/projects/attorney
+cd /opt/projects/attorney
+```
+
+Если проект уже есть на сервере:
+
+```bash
+cd /opt/projects/attorney
+git pull
+```
+
+---
+
+## 3. Настройте домен в DNS
+
+У вашего домена нужно создать A-запись:
+
+- тип: A
+- имя: @
+- значение: IP вашего сервера
+
+Если хотите также использовать www, добавьте CNAME:
+
+- тип: CNAME
+- имя: www
+- значение: ваш-домен.ru
+
+> DNS может обновляться от нескольких минут до нескольких часов. Перед запуском стоит подождать, пока запись начнёт резолвиться.
+
+Проверьте DNS на сервере:
+
+```bash
+nslookup your-domain.ru
+ping your-domain.ru
+```
+
+---
+
+## 4. Укажите домен в конфигурации
+
+### В файле Caddyfile
+
+Откройте [Caddyfile](Caddyfile) и замените пример домена на ваш:
+
+```caddy
+your-domain.ru {
+    reverse_proxy frontend:80
+}
+```
+
+### В файле docker-compose.yml
+
+В секции frontend проверьте переменные сборки:
+
+```yaml
+frontend:
+  build:
+    args:
+      VITE_SITE_URL: "https://your-domain.ru"
+      VITE_API_URL: ""
+```
+
+---
+
+## 5. Настройте переменные окружения
+
+Создайте файл с переменными для бэкенда:
 
 ```bash
 cp backend/.env.example backend/.env
 nano backend/.env
 ```
 
-Заполнить значения:
+Заполните его так:
 
 ```env
 BOT_TOKEN=токен_от_BotFather
 ADMIN_CHAT_IDS=123456789
-SITE_URL=https://xn--32-6kcajl7b5a2b.xn--p1ai
+SITE_URL=https://your-domain.ru
 ```
 
-| Переменная      | Где взять                                                 |
-|-----------------|-----------------------------------------------------------|
-| `BOT_TOKEN`     | Написать `/newbot` боту [@BotFather](https://t.me/BotFather) |
-| `ADMIN_CHAT_IDS`| Написать боту [@userinfobot](https://t.me/userinfobot)   |
-| `SITE_URL`      | Ваш домен с `https://`                                    |
-
-> `DATABASE_URL` не нужно указывать — `docker-compose.yml` задаёт его автоматически.
+Важно:
+- `BOT_TOKEN` получите у @BotFather
+- `ADMIN_CHAT_IDS` — ID админов через запятую
+- `SITE_URL` — ваш публичный домен с https://
 
 ---
 
-## 4. Проверка домена
+## 6. Убедитесь, что открыты порты 80 и 443
 
-Убедиться, что DNS уже распространился — Caddy не сможет выпустить сертификат без этого:
+На сервере должны быть доступны порты:
+
+- 80 — HTTP
+- 443 — HTTPS
+
+Если у вас VPS/облачный сервер, это обычно нужно открыть в firewall/security group.
+
+Для UFW можно сделать так:
 
 ```bash
-ping xn--32-6kcajl7b5a2b.xn--p1ai
-# IP в ответе должен совпадать с IP сервера
+sudo ufw allow 80/tcp
+sudo ufw allow 443/tcp
+sudo ufw enable
 ```
 
 ---
 
-## 5. Если домен другой
+## 7. Запустите приложение
 
-Если домен отличается от `xn--32-6kcajl7b5a2b.xn--p1ai`, поменять его в двух местах:
-
-**`Caddyfile`:**
-```
-ваш-домен.ru {
-    reverse_proxy frontend:80
-}
-```
-
-**`docker-compose.yml`** → секция `frontend → build → args`:
-```yaml
-VITE_SITE_URL: "https://ваш-домен.ru"
-```
-
----
-
-## 6. Запуск
+Из корня проекта:
 
 ```bash
+cd /opt/projects/attorney
 docker compose up -d --build
 ```
 
-При первом запуске:
-- Собираются образы (3–5 минут)
-- Caddy автоматически получает SSL-сертификат от Let's Encrypt
-- База данных создаётся автоматически
+Первый запуск может занять несколько минут.
 
 ---
 
-## 7. Проверка работоспособности
+## 8. Проверьте статус контейнеров
 
 ```bash
-# Статус контейнеров
 docker compose ps
-
-# Логи Caddy (сертификат)
-docker compose logs caddy
-
-# Логи бэкенда
-docker compose logs backend
-
-# Health check API
-curl https://xn--32-6kcajl7b5a2b.xn--p1ai/api/health
-# Ожидаемый ответ: {"status":"ok"}
 ```
 
-Открыть сайт в браузере — должен открыться по HTTPS.
+Проверьте логи:
+
+```bash
+docker compose logs backend
+docker compose logs caddy
+```
 
 ---
 
-## Обновление сайта
+## 9. Проверьте работу сайта
+
+Откройте в браузере:
+
+```text
+https://your-domain.ru
+```
+
+Проверьте API:
 
 ```bash
+curl https://your-domain.ru/api/health
+```
+
+Ожидаемый ответ:
+
+```json
+{"status":"ok"}
+```
+
+---
+
+## 10. Если HTTPS не работает
+
+Если сайт не открывается по HTTPS, проверьте следующее:
+
+### 10.1. DNS до сих пор не обновился
+
+```bash
+nslookup your-domain.ru
+```
+
+### 10.2. Порты 80/443 закрыты
+
+Проверьте доступность извне и firewall.
+
+### 10.3. Caddy не может получить сертификат
+
+Смотрите логи:
+
+```bash
+docker compose logs caddy
+```
+
+Обычно проблема связана с:
+- DNS
+- firewall
+- отсутствием доступа к внешним ACME-серверам
+- неверно указанным доменом в Caddyfile
+
+---
+
+## 11. Обновление приложения
+
+После изменений в проекте:
+
+```bash
+cd /opt/projects/attorney
 git pull
 docker compose up -d --build
 ```
 
-Данные в базе сохраняются — volume `db_data` не удаляется при пересборке.
-
 ---
 
-## Полезные команды
+## 12. Полезные команды
 
 ```bash
-# Остановить всё
+# Остановить контейнеры
 docker compose down
-
-# Остановить и удалить данные БД (необратимо!)
-docker compose down -v
 
 # Перезапустить один сервис
 docker compose restart backend
@@ -161,37 +238,16 @@ docker compose restart backend
 # Посмотреть логи в реальном времени
 docker compose logs -f
 
-# Подключиться внутрь контейнера бэкенда
-docker compose exec backend sh
+# Удалить базу данных целиком (только если надо)
+docker compose down -v
 ```
 
 ---
 
-## Резервная копия базы данных
+## 13. Что должно быть в итоге
 
-База хранится в Docker volume. Чтобы сделать бэкап:
+После успешного развёртывания должны быть доступны:
 
-```bash
-docker run --rm \
-  -v attorney_db_data:/data \
-  -v $(pwd):/backup \
-  alpine tar czf /backup/attorney-db-backup.tar.gz -C /data .
-```
-
-Файл `attorney-db-backup.tar.gz` появится в текущей директории.
-
----
-
-## Схема работы
-
-```
-Браузер
-  │
-  ├── :80  → Caddy (редирект на HTTPS)
-  └── :443 → Caddy (SSL Let's Encrypt)
-               │
-               └── frontend:80 (nginx)
-                     ├── /         → статика React (dist/)
-                     └── /api/     → backend:8000 (FastAPI + Telegram bot)
-                                        └── SQLite (volume: db_data)
-```
+- сайт по HTTPS: `https://your-domain.ru`
+- API: `https://your-domain.ru/api/health`
+- Telegram-бот должен работать в фоне через контейнер backend

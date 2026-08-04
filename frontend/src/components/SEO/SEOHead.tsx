@@ -1,6 +1,6 @@
 import { Helmet } from "react-helmet-async";
 
-const SITE_URL = import.meta.env.VITE_SITE_URL || "https://xn--32-6kcajl7b5a2b.xn--p1ai";
+const SITE_URL = import.meta.env.VITE_SITE_URL || "https://адвокат-32.рф";
 const SITE_NAME = "Адвокат Мефёд А.И.";
 
 type SchemaObject = Record<string, unknown>;

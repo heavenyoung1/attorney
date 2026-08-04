@@ -1,3 +1,4 @@
+import json
 from pathlib import Path
 
 from pydantic import AliasChoices, Field, field_validator
@@ -27,7 +28,15 @@ class Settings(BaseSettings):
         if v is None or v == "":
             return []
         if isinstance(v, str):
-            return [int(x.strip()) for x in v.split(",") if x.strip()]
+            try:
+                parsed = json.loads(v)
+            except ValueError:
+                parsed = [x.strip() for x in v.split(",") if x.strip()]
+            if isinstance(parsed, list):
+                return [int(x) for x in parsed]
+            if isinstance(parsed, int):
+                return [parsed]
+            return [int(parsed)]
         if isinstance(v, int):
             return [v]
         return v

@@ -18,7 +18,7 @@ services:
       context: ./frontend
       args:
         # Change VITE_SITE_URL if your domain is different
-        VITE_SITE_URL: "https://xn--32-6kcajl7b5a2b.xn--p1ai"
+        VITE_SITE_URL: "https://адвокат-32.рф"
         VITE_API_URL: ""
     restart: unless-stopped
     expose:

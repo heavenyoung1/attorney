@@ -39,8 +39,8 @@ export default function FamilyLaw() {
   return (
     <>
       <SEOHead
-        title="Семейный адвокат в Брянске | Мефёд А.И. — Развод, алименты, раздел имущества"
-        description="Семейный адвокат в Брянске — Мефёд А.И. Развод через суд, раздел имущества, алименты, споры о детях. Опыт 25+ лет. Звоните: +7 (910) 335-37-31."
+        title="Адвокат по семейному праву в Брянске | Мефёд А.И. — Развод, алименты, раздел имущества"
+        description="Адвокат по семейному праву в Брянске — Мефёд А.И. Развод через суд, раздел имущества, алименты, споры о детях. Опыт 25+ лет. Звоните: +7 (910) 335-37-31."
         canonical="/semeynyy-advokat-bryansk"
         schema={[
           {
@@ -49,7 +49,7 @@ export default function FamilyLaw() {
             "itemListElement": [
               { "@type": "ListItem", "position": 1, "name": "Главная", "item": "https://xn--32-6kcajl7b5a2b.xn--p1ai/" },
               { "@type": "ListItem", "position": 2, "name": "Услуги и цены", "item": "https://xn--32-6kcajl7b5a2b.xn--p1ai/prices" },
-              { "@type": "ListItem", "position": 3, "name": "Семейный адвокат", "item": "https://xn--32-6kcajl7b5a2b.xn--p1ai/semeynyy-advokat-bryansk" },
+              { "@type": "ListItem", "position": 3, "name": "Адвокат по семейному праву", "item": "https://xn--32-6kcajl7b5a2b.xn--p1ai/semeynyy-advokat-bryansk" },
             ],
           },
           {
@@ -78,7 +78,7 @@ export default function FamilyLaw() {
             Семейное право
           </p>
           <h1 className="text-4xl md:text-5xl font-serif font-bold mb-5 leading-tight">
-            Семейный адвокат в Брянске
+            Адвокат по семейному праву в Брянске
           </h1>
           <p className="text-gray-300 text-lg leading-relaxed max-w-2xl mb-8">
             Семейные конфликты — одни из самых эмоционально тяжёлых. Развод, раздел имущества,
@@ -139,7 +139,7 @@ export default function FamilyLaw() {
           {/* When needed */}
           <section className="mb-16">
             <h2 className="text-2xl md:text-3xl font-serif font-bold text-navy-950 mb-4">
-              Когда нужен семейный адвокат?
+              Когда нужен адвокат по семейному праву?
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {[
@@ -283,7 +283,7 @@ export default function FamilyLaw() {
           <section id="consultation">
             <div className="mb-8 text-center">
               <p className="section-label mb-2">Консультация</p>
-              <h2 className="section-title">Нужен семейный адвокат в Брянске?</h2>
+              <h2 className="section-title">Нужен Адвокат по семейному праву в Брянске?</h2>
               <p className="text-gray-600 mt-3 text-sm max-w-lg mx-auto">
                 Оставьте заявку или позвоните. Разберём вашу ситуацию,
                 объясним права и предложим стратегию защиты.

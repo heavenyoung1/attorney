@@ -10,7 +10,7 @@ const navLinks = [
 const serviceLinks = [
   { to: "/ugolovnyy-advokat-bryansk", label: "Уголовный адвокат" },
   { to: "/grazhdanskiy-advokat-bryansk", label: "Гражданские дела" },
-  { to: "/semeynyy-advokat-bryansk", label: "Семейный адвокат" },
+  { to: "/semeynyy-advokat-bryansk", label: "Адвокат по семейному праву" },
 ];
 
 export default function Footer() {
@@ -129,12 +129,12 @@ export default function Footer() {
           <p className="text-xs text-white/30 italic tracking-wide">
             Сайт разработан{" "}
             <a
-              href="https://t.me/heavenyoung"
+              href="https://t.me/perplexitii"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-gold transition-colors not-italic font-medium text-white/40"
             >
-              @heavenyoung
+              @perplexitii
             </a>
           </p>
         </div>

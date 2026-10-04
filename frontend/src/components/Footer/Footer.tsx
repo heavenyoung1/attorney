@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import maxIcon from "../../max.svg";
 
 const navLinks = [
   { to: "/", label: "Главная" },
@@ -121,12 +122,12 @@ export default function Footer() {
                 </li>
                 <li>
                   <a
-                    href="https://t.me/advokatmefed"
+                    href="https://max.ru/u/f9LHodD0cOK1VxHDX43CwqWU-kLUgFkUB1xHxXgG-UbIpTzr9rtzPRZ9Nnc"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="hover:text-gold transition-colors flex items-center gap-2"
                   >
-                    <span>✈</span> Max
+                    <img src={maxIcon} alt="" aria-hidden="true" className="w-5 h-5" /> Max
                   </a>
                 </li>
               </ul>

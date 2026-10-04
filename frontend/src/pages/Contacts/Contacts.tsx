@@ -27,7 +27,7 @@ const contacts: ContactItem[] = [
     icon: "✈",
     label: "Max",
     value: "@advokatmefed",
-    href: "https://t.me/advokatmefed",
+    href: "https://max.ru/u/f9LHodD0cOK1VxHDX43CwqWU-kLUgFkUB1xHxXgG-UbIpTzr9rtzPRZ9Nnc",
   },
   {
     icon: "📍",

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
+import maxIcon from "../../max.svg";
 
 const navLinks = [
   { to: "/", label: "Главная", end: true },
@@ -52,6 +53,15 @@ export default function Header() {
               className="bg-gold text-navy-950 px-5 py-2 rounded-lg font-semibold text-sm hover:bg-gold-400 transition-colors whitespace-nowrap"
             >
               +7 (910) 335-37-31
+            </a>
+            <a
+              href="https://max.ru/u/f9LHodD0cOK1VxHDX43CwqWU-kLUgFkUB1xHxXgG-UbIpTzr9rtzPRZ9Nnc"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-gold text-navy-950 px-5 py-2 rounded-lg font-semibold text-sm hover:bg-gold-400 transition-colors whitespace-nowrap flex items-center gap-2"
+            >
+              <img src={maxIcon} alt="" aria-hidden="true" className="w-4 h-4" />
+              Max
             </a>
           </nav>
 
@@ -118,6 +128,16 @@ export default function Header() {
               onClick={() => setIsOpen(false)}
             >
               +7 (910) 335-37-31
+            </a>
+            <a
+              href="https://max.ru/u/f9LHodD0cOK1VxHDX43CwqWU-kLUgFkUB1xHxXgG-UbIpTzr9rtzPRZ9Nnc"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-gold text-navy-950 px-4 py-3 rounded-lg font-semibold text-sm text-center hover:bg-gold-400 transition-colors flex items-center justify-center gap-2"
+              onClick={() => setIsOpen(false)}
+            >
+              <img src={maxIcon} alt="" aria-hidden="true" className="w-4 h-4" />
+              Max
             </a>
           </nav>
         )}

@@ -9,7 +9,7 @@ const stats = [
 
 const statsMarina = [
   { value: "5+", label: "лет практики" },
-  { value: "2019", label: "год вступления в адвокатуру" },
+  { value: "2022", label: "год вступления в адвокатуру" },
   { value: "№ 32/706", label: "реестровый номер" },
 ];
 

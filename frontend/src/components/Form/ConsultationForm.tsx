@@ -40,6 +40,7 @@ export default function ConsultationForm({ className = "", initialMessage = "" }
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const [submitError, setSubmitError] = useState("");
+  const [hasPersonalDataConsent, setHasPersonalDataConsent] = useState(false);
 
   const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -52,6 +53,10 @@ export default function ConsultationForm({ className = "", initialMessage = "" }
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     setSubmitError("");
+
+    if (!hasPersonalDataConsent) {
+      return;
+    }
 
     const validationErrors = validate(formData);
     if (Object.keys(validationErrors).length > 0) {
@@ -69,6 +74,7 @@ export default function ConsultationForm({ className = "", initialMessage = "" }
       });
       setIsSuccess(true);
       setFormData({ name: "", phone: "", email: "", message: "" });
+      setHasPersonalDataConsent(false);
     } catch {
       setSubmitError(
         "Не удалось отправить заявку. Пожалуйста, позвоните нам или попробуйте позже."
@@ -105,7 +111,10 @@ export default function ConsultationForm({ className = "", initialMessage = "" }
           Мы свяжемся с вами в течение 30 минут в рабочее время.
         </p>
         <button
-          onClick={() => setIsSuccess(false)}
+          onClick={() => {
+            setIsSuccess(false);
+            setHasPersonalDataConsent(false);
+          }}
           className="text-navy-800 underline text-sm hover:text-navy-950 transition-colors"
         >
           Отправить ещё одну заявку
@@ -228,9 +237,62 @@ export default function ConsultationForm({ className = "", initialMessage = "" }
         </div>
       )}
 
+      <div className="space-y-2">
+        <label className="flex items-start gap-3 text-sm text-gray-700 cursor-pointer">
+          <input
+            type="checkbox"
+            checked={hasPersonalDataConsent}
+            onChange={(event) => setHasPersonalDataConsent(event.target.checked)}
+            required
+            className="mt-0.5 h-4 w-4 shrink-0 accent-gold focus:ring-2 focus:ring-gold"
+          />
+          <span>
+            Я даю своё согласие на обработку персональных данных{" "}
+            <span className="text-red-500" aria-hidden="true">*</span>
+          </span>
+        </label>
+
+        <details className="pl-7 text-xs text-gray-500 leading-relaxed">
+          <summary className="w-fit cursor-pointer select-none underline decoration-gray-400 underline-offset-2 hover:text-gray-700">
+            Подробнее о согласии и целях обработки
+          </summary>
+          <div className="mt-3 space-y-3">
+            <p>
+              Я даю своё согласие на обработку моих персональных данных в соответствии с Федеральным законом от 27.07.2006 № 152-ФЗ «О персональных данных» для рассмотрения моего обращения, связи со мной по указанному обращению и предоставления информации о возможности оказания юридической помощи.
+            </p>
+            <p>
+              Перечень персональных данных: имя, номер телефона, адрес электронной почты, сведения, содержащиеся в описании обращения.
+            </p>
+            <p>
+              Я согласен(на) на совершение с моими персональными данными действий, необходимых для указанных целей, включая получение, запись, систематизацию, использование, передачу в случаях, предусмотренных законодательством Российской Федерации, удаление и уничтожение.
+            </p>
+            <p>
+              Согласие действует до достижения целей обработки либо до его отзыва, если отсутствуют иные законные основания для обработки.
+            </p>
+            <p>
+              Согласие может быть отозвано путём направления соответствующего обращения Оператору по адресу:{" "}
+              <a
+                href="mailto:advmefed32@yandex.ru"
+                className="underline underline-offset-2 hover:text-gray-700"
+              >
+                advmefed32@yandex.ru
+              </a>.
+            </p>
+            <a
+              href="/personal_data.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block underline underline-offset-2 hover:text-gray-700"
+            >
+              Политика в отношении обработки персональных данных
+            </a>
+          </div>
+        </details>
+      </div>
+
       <button
         type="submit"
-        disabled={isSubmitting}
+        disabled={isSubmitting || !hasPersonalDataConsent}
         className="w-full bg-gold text-navy-950 py-3.5 px-6 rounded-lg font-semibold text-sm hover:bg-gold-400 transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
       >
         {isSubmitting ? (
@@ -263,9 +325,14 @@ export default function ConsultationForm({ className = "", initialMessage = "" }
 
       <p className="text-xs text-gray-500 text-center leading-relaxed">
         Нажимая кнопку, вы соглашаетесь с{" "}
-        <span className="underline cursor-pointer">
+        <a
+          href="/personal_data.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="underline cursor-pointer hover:text-gray-700"
+        >
           политикой обработки персональных данных
-        </span>
+        </a>
       </p>
     </form>
   );

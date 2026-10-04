@@ -135,3 +135,6 @@ docker run --rm \
   -v $(pwd):/backup \
   alpine tar czf /backup/attorney-db-backup.tar.gz -C /data .
 ```
+
+### Локальное тестирование фронта
+```npm --prefix frontend run dev -- --host 127.0.0.1```

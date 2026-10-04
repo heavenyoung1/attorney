@@ -1,4 +1,5 @@
 import attorneyPhoto from "../../attorney.jpg";
+import attorneyMarina from "../../marina.jpg";
 
 const stats = [
   { value: "25+", label: "лет практики" },
@@ -6,11 +7,18 @@ const stats = [
   { value: "№ 32/142", label: "реестровый номер" },
 ];
 
+const statsMarina = [
+  { value: "5+", label: "лет практики" },
+  { value: "2019", label: "год вступления в адвокатуру" },
+  { value: "№ 32/706", label: "реестровый номер" },
+];
+
 export default function About() {
   return (
     <section className="py-20 bg-white">
       <div className="container mx-auto px-4">
-        <div className="flex flex-col md:flex-row gap-12 items-start max-w-5xl mx-auto">
+        <div className="max-w-5xl mx-auto space-y-20">
+          <div className="flex flex-col md:flex-row gap-12 items-start">
           {/* Photo */}
           <div className="flex-shrink-0 w-full md:w-[422px] lg:w-[462px]">
             <img
@@ -60,8 +68,55 @@ export default function About() {
               </p>
             </div>
           </div>
+          </div>
+
+          <div className="flex flex-col md:flex-row gap-12 items-start">
+            <div className="flex-shrink-0 w-full md:w-[422px] lg:w-[462px]">
+              <img
+                src={attorneyMarina}
+                alt="Мефёд Марина Сергеевна — адвокат"
+                className="w-full rounded-2xl shadow-lg object-cover object-top"
+              />
+            </div>
+
+            <div className="flex-1">
+              <p className="section-label mb-2">Об адвокате</p>
+              <h2 className="section-title mb-8">Мефёд Марина Сергеевна — адвокат в Брянске</h2>
+
+              <div className="grid grid-cols-3 gap-4 mb-8">
+                {statsMarina.map(({ value, label }) => (
+                  <div
+                    key={label}
+                    className="border border-gold/30 rounded-2xl px-4 py-4 text-center bg-amber-50/40"
+                  >
+                    <p className="text-2xl font-serif font-bold text-navy-950 mb-1">
+                      {value}
+                    </p>
+                    <p className="text-xs text-gray-500">{label}</p>
+                  </div>
+                ))}
+              </div>
+
+              <div className="space-y-4 text-gray-700 leading-relaxed text-base">
+                <p>
+                  Марина Сергеевна имеет звания майора юстиции МВД.{" "}
+                  Работа в министерстве внутренних дел Российской Федерации дала ей богатый опыт в правовой сфере.
+                  Актуальные знания и опыт в работе с другой стороны правовой системы позволяют ей эффективно решать вопросы защиты клиентов.
+                </p>
+                <p>
+                  <span className="font-medium text-navy-950">
+                    Защита по уголовным делам
+                  </span>{" "}
+                  стала основной специализацией этого опытного юриста. 
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
   );
 }
+
+
+

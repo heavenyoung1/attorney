@@ -143,7 +143,7 @@ export default function ConsultationForm({ className = "", initialMessage = "" }
           name="name"
           value={formData.name}
           onChange={handleChange}
-          placeholder="Александр Пушкин"
+          placeholder="Александр"
           autoComplete="name"
           className={`w-full px-4 py-3 border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-gold focus:border-transparent transition ${
             errors.name
@@ -198,7 +198,7 @@ export default function ConsultationForm({ className = "", initialMessage = "" }
           name="email"
           value={formData.email}
           onChange={handleChange}
-          placeholder="example@mail.ru"
+          placeholder="puskin@mail.ru"
           autoComplete="email"
           className={`w-full px-4 py-3 border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-gold focus:border-transparent transition ${
             errors.email

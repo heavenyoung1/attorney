@@ -25,7 +25,7 @@ const contacts: ContactItem[] = [
   },
   {
     icon: "✈",
-    label: "Telegram",
+    label: "Max",
     value: "@advokatmefed",
     href: "https://t.me/advokatmefed",
   },

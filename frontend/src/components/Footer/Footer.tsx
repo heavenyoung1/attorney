@@ -57,6 +57,16 @@ export default function Footer() {
                   </Link>
                 </li>
               ))}
+              <li>
+                <a
+                  href="/personal_data.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm hover:text-gold transition-colors"
+                >
+                  Политика обработки персональных данных
+                </a>
+              </li>
             </ul>
           </div>
 
@@ -116,7 +126,7 @@ export default function Footer() {
                     rel="noopener noreferrer"
                     className="hover:text-gold transition-colors flex items-center gap-2"
                   >
-                    <span>✈</span> Telegram
+                    <span>✈</span> Max
                   </a>
                 </li>
               </ul>
